@@ -1,0 +1,27 @@
+#include<iostream>
+#include<algorithm>
+#include<climits>
+using namespace std;
+int main() {
+    int n;
+    cin>>n;
+    cout<<"Enter the number of element in array: ";
+    cin>>n;
+    int arr[n], s=INT_MAX, ss=INT_MAX, ind=0;
+    cout<<"\nEnter the array";
+    for(int i=0; i<n; i++){  //O(n)
+        cin<<arr[i];
+        if(s<arr[i]){
+            s = arr[i];
+            ind = i;
+        }
+    }
+    swap(arr[0], arr[ind]);  //O(1)
+    for(int i=1; i<n; i++){  //O(n)
+        if(ss<arr[i])
+            ss = arr[i];
+    }
+    cout<<"Smallest element is: "<<s<<endl;
+    cout<<"Second smallest element is: "<<ss<<endl;
+    return 0;
+}
